@@ -1,0 +1,69 @@
+{% extends "./principal-template.html" %} 
+
+{% block title %}Stiven Pilca{% endblock %} 
+
+{% block body %}
+<!--Introduccion-->
+
+<p class="introduction">
+  En esta página web encontrarás información corta acerca de algunas películas, entre esta información estará el título, imágen y año de estreno, además tendrás la posiblidad de solicitar que se
+  agregue una película que desees rellenando la información solicitada en el formulario de la parte de abajo.<br /><br />
+  También podrás encontrar el contenido separado por categorías.
+</p>
+
+<!--Tabla de contenidos-->
+<h2 class="title" id="index">Tabla de contenidos</h2>
+<ul class="content-list">
+  <a href="#category-accion">
+    <li>Acción</li>
+  </a>
+  <a href="#category-animacion">
+    <li>Animación</li>
+  </a>
+  <a href="#category-cienciaficcion">
+    <li>Ciencia Ficción</li>
+  </a>
+  <a href="#category-comedia">
+    <li>Comedia</li>
+  </a>
+  <a href="#category-drama">
+    <li>Drama</li>
+  </a>
+  <a href="{{url_for('suggest_blueprint.suggest')}}">
+    <li>Sugerencias</li>
+  </a>
+</ul>
+
+<!--
+<h2 id="category-" class="subtitle">{{generos[0].nombre}}</h2>
+<p class="description">{{generos[0].descripcion}}</p>
+-->
+
+
+{% for pe in peliculas %}
+<div class="movie-container">
+  <div class="top-info">
+    <h3 class="movie-title">{{pe.nombre}}</h3>
+    <span>{{pe.fecha}}</span>
+  </div>
+  <div class="movie-img-description">
+    <img class="movie-img" src="data:image/png;base64,{{pe.imagen}}" />
+    <div class="movie-description">
+      <p >{{pe.sinopsis}}</p>
+    </div>
+  </div>
+  <a class="movie-link" href="{{pe.enlace}}" target="_blank">
+    <img src="{{url_for('static', filename='img/logo-netflix.png')}}" />
+  </a>
+</div>
+{% endfor %}
+
+
+
+
+<!--Enlace para regresar al indice-->
+<a class="arrow" href="#start">
+  <img src="{{url_for('static', filename='img/arrowup.png')}}" />
+</a>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "./principal-template.html" %}
+{% block title %}Página no encontrada{% endblock %}
+
+{% block body %}
+
+<div class="page-not-found">
+    <h1>Ha ocurrido un problema</h1>
+    <div>
+        <img src="{{url_for('static', filename='img/error-404.png')}}" />
+    </div>
+    <p>La página que estás buscando no existe</p>
+</div>
+
+{% endblock %}

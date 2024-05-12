@@ -1,0 +1,22 @@
+{% extends "./principal-template.html" %} 
+
+{% block title %}Stiven Pilca{% endblock %} 
+
+{% block body %}
+
+<!--Formulario de sugerencias-->
+<h2 class="title" id="suggest">Sugerir una película</h2>
+<form>
+  <label>Nombre: </label>
+  <input class="text-input" type="text" placeholder="Ingrese su nombre" />
+
+  <label>Correo electrónico: </label>
+  <input class="text-input" type="text" placeholder="Ingrese su correo electrónico" />
+
+  <label>Nombre Pelicula: </label>
+  <input class="text-input" type="text" placeholder="Ingrese el nombre de la película" />
+
+  <input class="button" type="submit" value="Sugerir" />
+  <input class="button" type="reset" value="Limpiar" />
+</form>
+{% endblock %}
