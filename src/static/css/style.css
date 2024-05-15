@@ -5,7 +5,7 @@
     --main-color: #512BCF;
     --light-main-color: #8069CC;
     --background-color: #F1F2F6;
-
+    --white: #FFF;
 }
 
 html{
@@ -31,6 +31,30 @@ body{
     height: 100px;
     background-color: var(--main-color);
     color: #FFF;
+}
+
+.home-button{
+    height: 0 auto;
+}
+.home-button a{
+    position: relative;
+    text-decoration: none;
+    font-size: x-large;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.home-button__image{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    
+}
+.home-button__image img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .introduction{

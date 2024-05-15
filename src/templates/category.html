@@ -1,0 +1,29 @@
+{% extends "./principal-template.html" %}
+
+{% block title %}{{title}}{% endblock  %}
+
+{% block body %}
+
+
+<h2 id="category" class="subtitle">{{elementoGenero.nombre}}</h2>
+<p class="description">{{elementoGenero.descripcion}}</p>
+
+{% for pe in listaPelicula %}
+<div class="movie-container {{pe.id}}">
+  <div class="top-info">
+    <h3 class="movie-title">{{pe.nombre}}</h3>
+    <span>{{pe.fecha}}</span>
+  </div>
+  <div class="movie-img-description">
+    <img class="movie-img" src="data:image/png;base64,{{pe.imagen}}" />
+    <div class="movie-description">
+      <p >{{pe.sinopsis}}</p>
+    </div>
+  </div>
+  <a class="movie-link" href="{{pe.enlace}}" target="_blank">
+    <img src="{{url_for('static', filename='img/logo-netflix.png')}}" />
+  </a>
+</div>
+{% endfor %}
+
+{% endblock  %}

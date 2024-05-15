@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
-from src.routes import HomeRoutes, SuggestRoutes
+from src.routes import HomeRoutes, SuggestRoutes, CategoryRoutes
 
 app = Flask(__name__)
 db = MySQL(app)
@@ -15,5 +15,6 @@ def init_app(config):
     # Blueprints
     app.register_blueprint(HomeRoutes.main, url_prefix='/')
     app.register_blueprint(SuggestRoutes.main, url_prefix='/suggest')
+    app.register_blueprint(CategoryRoutes.main, url_prefix='/category')
 
     return app

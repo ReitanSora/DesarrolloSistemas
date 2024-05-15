@@ -14,19 +14,19 @@
 <!--Tabla de contenidos-->
 <h2 class="title" id="index">Tabla de contenidos</h2>
 <ul class="content-list">
-  <a href="#category-accion">
+  <a href="{{url_for('category_blueprint.home', title='Acción')}}">
     <li>Acción</li>
   </a>
-  <a href="#category-animacion">
+  <a href="{{url_for('category_blueprint.home', title='Animación')}}">
     <li>Animación</li>
   </a>
-  <a href="#category-cienciaficcion">
+  <a href="{{url_for('category_blueprint.home', title='Ciencia Ficción')}}">
     <li>Ciencia Ficción</li>
   </a>
-  <a href="#category-comedia">
+  <a href="{{url_for('category_blueprint.home', title='Comedia')}}">
     <li>Comedia</li>
   </a>
-  <a href="#category-drama">
+  <a href="{{url_for('category_blueprint.home', title='Drama')}}">
     <li>Drama</li>
   </a>
   <a href="{{url_for('suggest_blueprint.suggest')}}">
@@ -34,35 +34,13 @@
   </a>
 </ul>
 
-<!--
-<h2 id="category-" class="subtitle">{{generos[0].nombre}}</h2>
-<p class="description">{{generos[0].descripcion}}</p>
--->
 
-
-{% for pe in peliculas %}
-<div class="movie-container">
-  <div class="top-info">
-    <h3 class="movie-title">{{pe.nombre}}</h3>
-    <span>{{pe.fecha}}</span>
-  </div>
-  <div class="movie-img-description">
-    <img class="movie-img" src="data:image/png;base64,{{pe.imagen}}" />
-    <div class="movie-description">
-      <p >{{pe.sinopsis}}</p>
-    </div>
-  </div>
-  <a class="movie-link" href="{{pe.enlace}}" target="_blank">
-    <img src="{{url_for('static', filename='img/logo-netflix.png')}}" />
-  </a>
-</div>
-{% endfor %}
 
 
 
 
 <!--Enlace para regresar al indice-->
-<a class="arrow" href="#start">
+<a class="arrow" href="{{url_for('home_blueprint.home')}}">
   <img src="{{url_for('static', filename='img/arrowup.png')}}" />
 </a>
 

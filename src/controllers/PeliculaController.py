@@ -5,10 +5,33 @@ from src.models.PeliculaModel import Pelicula
 class PeliculaController():
 
     @classmethod
-    def find_all(self, db):
+    def find_all(self, db) -> list:
         try:
             cursor = db.connection.cursor()
             sql = "select * from pelicula"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            listaPelicula = list()
+            for item in result:
+                pelicula = Pelicula(id=item[0], nombre=item[1], fecha=item[2], sinopsis=item[3], enlace=item[4], imagen=self.convert_to_base64(item[5]))
+                listaPelicula.append(pelicula)
+            if result != None:
+                return listaPelicula
+            else:
+                return None
+        except Exception as e:
+            print(e)
+            raise Exception(e)
+        
+    
+        
+    @classmethod
+    def find_by_genre(self, db, genre: str) -> list:
+        try:
+            cursor = db.connection.cursor()
+            sql = """select id_Pelicula, nombre_Pelicula, fecha_Pelicula, sinopsis_Pelicula, enlace_Pelicula, imagen_Pelicula
+                    from pelicula p, genero g
+                    where p.FK_id_genero = g.id_genero and g.nombre_genero = '{}'""".format(genre)
             cursor.execute(sql)
             result = cursor.fetchall()
             listaPelicula = list()

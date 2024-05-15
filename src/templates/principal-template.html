@@ -9,9 +9,12 @@
   </head>
 
   <body>
-    <div id="start" class="header">
+    <div class="header">
       <div class="home-button">
         <a href="{{url_for('home_blueprint.home')}}">
+          <div class="home-button__image">
+            <img src="{{url_for('static', filename='img/camera-movie.png')}}"/>
+          </div>
           <span>Peliculas</span>
         </a>
       </div>
